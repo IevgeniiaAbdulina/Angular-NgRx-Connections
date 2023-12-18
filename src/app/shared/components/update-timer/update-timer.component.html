@@ -1,0 +1,10 @@
+<app-button
+  [type]="'raised'"
+  [color]="'primary'"
+  (click)="onClick()"
+  [disabled]="countdown > 0">
+  Update
+  <ng-container *ngIf="countdown > 0">
+    {{ countdown }}
+  </ng-container>
+</app-button>

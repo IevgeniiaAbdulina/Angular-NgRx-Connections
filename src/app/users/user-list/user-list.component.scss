@@ -1,0 +1,18 @@
+a {
+  text-decoration: none;
+}
+
+.container {
+  min-width: 150px;
+  max-width: 584px;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 8px;
+  margin: 16px 0;
+}
+

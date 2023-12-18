@@ -1,0 +1,11 @@
+button {
+  padding: 18px;
+
+  &:disabled,
+  &[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+

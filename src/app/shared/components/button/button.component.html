@@ -1,0 +1,16 @@
+<button
+  mat-button
+  [ngClass]="{
+    'mat-mdc-button mat-mdc-button': type === 'basic',
+    'mat-mdc-button mat-mdc-raised-button': type === 'raised',
+    'mat-mdc-unelevated-button': type === 'flat',
+    'mdc-icon-button mat-mdc-icon-button': type === 'icon',
+    'mdc-button--outlined mat-mdc-outlined-button': type === 'stroked',
+    'mdc-fab mat-mdc-fab': type === 'fab',
+    'mdc-fab mdc-fab--mini mat-mdc-mini-fab': type === 'mini-fab'
+  }"
+  [color]="color"
+  (click)="onClick($event)"
+  [disabled]="disabled">
+  <ng-content></ng-content>
+</button>

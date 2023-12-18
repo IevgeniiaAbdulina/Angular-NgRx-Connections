@@ -1,0 +1,16 @@
+<mat-card class="container">
+  <a [routerLink]="['/group', group.id.S]">
+    <mat-card-header>
+      <mat-card-title>{{ group.name.S | titlecase }}</mat-card-title>
+    </mat-card-header>
+  </a>
+  <ng-container *ngIf="group.createdBy.S === createdByUser">
+    <app-button
+        [type]="'icon'"
+        [color]="'warn'"
+        (click)="deleteGroupHandler(group.id.S)"
+        [disabled]="false">
+        <mat-icon class="close-icon">delete</mat-icon>
+      </app-button>
+  </ng-container>
+</mat-card>

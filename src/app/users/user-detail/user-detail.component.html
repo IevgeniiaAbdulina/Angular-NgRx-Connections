@@ -1,0 +1,11 @@
+<mat-card [ngClass]="user.name.S === 'Sam' ? 'existing-conversation' : null ">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ user.name.S }}</mat-card-title>
+      <mat-card-subtitle>existing conversation</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    Content text
+  </mat-card-content>
+</mat-card>

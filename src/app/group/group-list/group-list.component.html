@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="group-header">
+    <h3 class="group-title">Groups</h3>
+    <div  *ngIf="isLoading | async">
+      <p>Loading groups...</p>
+    </div>
+    <div class="title-actions">
+      <app-update-timer (click)="updateHandler()"></app-update-timer>
+      <app-button
+        [type]="'raised'"
+        [color]="'accent'"
+        (click)="openDialog()"
+        [disabled]="false">
+        Create new group
+      </app-button>
+    </div>
+  </div>
+  <div class="content">
+    <ng-container *ngFor="let group of groups | async">
+      <app-group-detail [group]="group"></app-group-detail>
+    </ng-container>
+  </div>
+</div>
+<ng-template>
+  <app-snack-bar [snackBarData]="snackBarData"></app-snack-bar>
+</ng-template>

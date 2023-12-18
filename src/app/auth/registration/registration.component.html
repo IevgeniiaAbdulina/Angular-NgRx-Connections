@@ -1,0 +1,39 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header class="card-header">
+      <mat-card-title>Create your account</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="card-content">
+      <form class="form" [formGroup]="registrationForm" (ngSubmit)="submitHandler()">
+        <ng-container   *ngFor="let field of formFields | iterableObject">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>{{ field.label | titlecase }}</mat-label>
+            <input
+              matInput
+              [id]="field.name"
+              [type]="field.type"
+              [placeholder]="field.placeholder"
+              [formControlName]="field.controlName"
+              required>
+            <mat-error class="error" *ngIf="validationCheck(getControlName(field.controlName)!)">
+              <ng-container *ngFor="let err of field.errorKeys">
+                <p><span class="error-message" *ngIf="getControlName(field.controlName)?.errors?.[err]">{{ field.errors?.get(err)}}</span></p>
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+        </ng-container>
+        <mat-card-actions align="end">
+          <app-button
+            class="form-action"
+            [type]="'flat'"
+            [color]="'primary'"
+            [disabled]="!registrationForm.valid">
+            Sign up
+          </app-button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+

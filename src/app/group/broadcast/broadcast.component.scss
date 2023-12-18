@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+.message {
+  display: flex;
+  justify-content: flex-start;
+  margin: 8px 0;
+}
+
+.message.me {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &-left {
+    display: flex;
+    align-items: center;
+  }
+
+  &-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.header-right > * {
+  margin-left: 16px;
+}
+
+.content {
+  padding: 0 16px;
+  margin-top: 16px;
+}
+
+#send-btn {
+  margin-right: 16px;
+}
+
+.actions {
+  position: relative;
+  bottom: 0;
+  padding: 0 16px;
+  margin-top: auto;
+
+  mat-form-field {
+    width: 100%;
+  }
+}

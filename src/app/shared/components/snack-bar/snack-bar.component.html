@@ -1,0 +1,12 @@
+<span class="message" matSnackBarLabel>
+  {{ snackBarData.message }}
+</span>
+<span matSnackBarActions>
+  <app-button
+    matSnackBarAction
+    [type]="'stroked'"
+    [color]="'accent'"
+    (click)="dismissClicked()"
+    [disabled]="false"
+  >Close</app-button>
+</span>

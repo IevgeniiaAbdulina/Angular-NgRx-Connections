@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="header">
+    <h3 class="title">Users list</h3>
+    <app-update-timer (click)="updateHandler()"></app-update-timer>
+  </div>
+  <div class="content">
+    <ng-container *ngFor="let user of userList">
+      <a [routerLink]="['conversation', '123']"><app-user-detail [user]="user"></app-user-detail></a>
+    </ng-container>
+  </div>
+</div>

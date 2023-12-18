@@ -1,0 +1,30 @@
+
+<h3 mat-dialog-title>Create new public group</h3>
+<form [formGroup]="modalForm">
+  <div mat-dialog-content>
+    <p>Start you public group</p>
+    <mat-form-field >
+      <mat-label>Group name</mat-label>
+      <input matInput [(ngModel)]="data" formControlName="name">
+      <mat-hint>Name should contains only letters, digits or spaces</mat-hint>
+      <mat-error>Invalid name.</mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <app-button
+        [type]="'stroked'"
+        [color]="''"
+        (click)="onNoClick()"
+        [disabled]="false">
+        Reject
+    </app-button>
+    <button
+      mat-flat-button
+      color="primary"
+      [mat-dialog-close]="data"
+      cdkFocusInitial
+      [disabled]="modalForm.invalid">
+      Submit
+    </button>
+  </div>
+</form>

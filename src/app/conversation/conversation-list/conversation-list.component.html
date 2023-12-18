@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="conversation-header">
+    <div class="conversation-header-left">
+      <a mat-button routerLink="/" routerLinkActive="active">
+        <span class="material-symbols-outlined">
+          arrow_back
+        </span>
+      </a>
+      <div class="header-title">
+        <img src="https://firebasestorage.googleapis.com/v0/b/personal-portfolio-b7e69.appspot.com/o/connections-app%2Fuser-photo-2.png?alt=media&token=a48a0e4b-f7fe-4024-9799-72f6b474acaf" alt="user photo">
+        <h4>Sam</h4>
+      </div>
+    </div>
+    <div class="conversation-header-right">
+      <app-update-timer (click)="updateHandler()"></app-update-timer>
+      <app-button
+        [type]="'stroked'"
+        [color]="'warn'"
+        (click)="deleteHandler()"
+        [disabled]="false">
+        Delete
+      </app-button>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="conversation-content">
+    <ng-container class="messages"
+      *ngFor="let message of conversation">
+      <app-conversation-detail [ngClass]="message.authorID.S === 'Jane' ? 'message me' : 'message'" [messageItem]="message"></app-conversation-detail>
+    </ng-container>
+  </div>
+  <div class="conversation-actions">
+    <form [formGroup]="newMessageForm" (ngSubmit)="sendMessageHandler()">
+      <mat-form-field appearance="outline" class="message-field">
+        <input matInput type="text" placeholder="Write a message..." formControlName="text">
+        <button id="message-send-btn" type="submit" matSuffix mat-icon-button color="primary" aria-label="send message button">
+          <mat-icon>send</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+  </div>
+</div>

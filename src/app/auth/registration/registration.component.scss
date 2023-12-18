@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 80px auto;
+}
+
+.card {
+  &-header {
+    padding: 20px;
+  }
+
+  &-content {
+    margin-top: 20px
+  }
+}
+
+.form {
+  &-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &-action {
+    margin-top: 80px;
+    width: 100%;
+  }
+}
+
+mat-error {
+ height: 10px;
+}
+
+p {
+  margin: 0;
+  position: relative;
+  top: -16px;
+}

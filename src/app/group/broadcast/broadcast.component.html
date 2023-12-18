@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="header">
+    <div class="header-left">
+      <a mat-button routerLink="/" routerLinkActive="active">
+        <span class="material-symbols-outlined">
+          arrow_back
+        </span>
+      </a>
+      <h4>Group conversation</h4>
+    </div>
+    <div class="header-right">
+      <app-update-timer (click)="updateHandler()"></app-update-timer>
+      <app-button
+        [type]="'stroked'"
+        [color]="'warn'"
+        (click)="deleteHandler()"
+        [disabled]="false">
+        Delete
+      </app-button>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="content">
+    <ng-container class="messages"
+      *ngFor="let message of conversation | async">
+      <app-conversation-detail [ngClass]="message.authorID.S === createdByUser ? 'message me' : 'message'" [messageItem]="message"></app-conversation-detail>
+    </ng-container>
+  </div>
+  <div class="actions">
+    <form [formGroup]="newMessageForm" (ngSubmit)="sendMessageHandler()">
+      <mat-form-field appearance="outline" class="message-field">
+        <input matInput type="text" placeholder="Write a message..." formControlName="text">
+        <button id="send-btn" type="submit" matSuffix mat-icon-button color="primary" aria-label="send message button">
+          <mat-icon>send</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
