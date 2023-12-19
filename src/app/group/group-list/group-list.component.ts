@@ -56,7 +56,7 @@ export class GroupListComponent {
   ): MatSnackBarRef<TextOnlySnackBar> {
     return this.snackBar.open(message, action, {
       duration: 3 * 1000,
-      horizontalPosition: 'end',
+      horizontalPosition: 'center',
       verticalPosition: 'bottom'
     });
   }

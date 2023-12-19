@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +14,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { IterableObjectPipe } from './auth/pipes/iterable-object.pipe';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { GroupModule } from './group/group.module';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { MainComponent } from './pages/main/main.component';
 import { PageNoFoundComponent } from './pages/page-no-found/page-no-found.component';
 import { PersonDialogComponent } from './pages/person-dialog/person-dialog.component';
@@ -48,7 +49,9 @@ import { UsersModule } from './users/users.module';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
